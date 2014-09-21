@@ -45,7 +45,7 @@ namespace RawPHP\RawDateTime;
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
-interface IDateTime extends \DateTimeInterface
+interface IDateTime
 {
     /**
      * Converts the current date time object to UTC time.

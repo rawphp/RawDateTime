@@ -54,3 +54,4 @@ Please submit bug reports, suggestions and pull requests to the [GitHub issue tr
 
 #### 21-09-2014
 - Initial Code Commit
+- Removed DateTimeInterface because it was added in PHP 5.5
