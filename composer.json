@@ -1,0 +1,34 @@
+{
+    "name": "rawphp/raw-datetime",
+    "type": "library",
+    "description": "RawDateTime is a wrapper with useful utility functions around the DateTime class and is used by RawPHP framework and other applications.",
+    "keywords": [ "date", "datetime" ],
+    "homepage": "http://rawphp.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Kaczocha",
+            "email": "tom@rawphp.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.5",
+        "squizlabs/php_codesniffer": "dev-master",
+        "rawphp/raw-code-standards": "1.*@dev",
+        "phpdocumentor/phpdocumentor": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    }
+}
