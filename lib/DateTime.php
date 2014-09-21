@@ -177,7 +177,7 @@ class DateTime extends \DateTime implements IDateTime
     const SPAN_MONTHS   = 'months';
     const SPAN_WEEKS    = 'weeks';
     const SPAN_DAYS     = 'days';
-    const SPAN_HOURS    = 'horus';
+    const SPAN_HOURS    = 'hours';
     const SPAN_MINUTES  = 'minutes';
     const SPAN_SECONDS  = 'seconds';
     
