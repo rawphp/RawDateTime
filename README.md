@@ -1,4 +1,4 @@
-# RawDateTime - An DateTime Class Extension
+# RawDateTime - An DateTime Class Extension [![Build Status](https://travis-ci.org/rawphp/RawDateTime.svg?branch=master)](https://travis-ci.org/rawphp/RawDateTime)
 
 ## Package Features
 - User to UTC time conversion
