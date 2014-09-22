@@ -1,4 +1,6 @@
-# RawDateTime - An DateTime Class Extension [![Build Status](https://travis-ci.org/rawphp/RawDateTime.svg?branch=master)](https://travis-ci.org/rawphp/RawDateTime)
+# RawDateTime - An DateTime Class Extension
+
+[![Build Status](https://travis-ci.org/rawphp/RawDateTime.svg?branch=master)](https://travis-ci.org/rawphp/RawDateTime)
 
 ## Package Features
 - User to UTC time conversion
@@ -51,6 +53,9 @@ This package is licensed under the [MIT](https://github.com/rawphp/RawDateTime/b
 Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/rawphp/RawDateTime/issues).
 
 ## Changelog
+
+#### 22-09-2014
+- Updated to PHP 5.3.
 
 #### 21-09-2014
 - Initial Code Commit
