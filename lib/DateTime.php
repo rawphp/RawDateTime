@@ -84,7 +84,7 @@ class DateTime extends \DateTime implements IDateTime
         }
         if ( empty( $timezone ) )
         {
-            $timezone = new \DateTimeZone( Application::$defaultTimezone );
+            $timezone = new \DateTimeZone( ini_get( 'date.timezone' ) );
         }
         
         $newDate->setTimezone( $timezone );
@@ -108,7 +108,7 @@ class DateTime extends \DateTime implements IDateTime
     )
     {
         $diff = $date1->diff( $date2, $absolute );
-        print_r( $diff );
+
         $span = 0;
         
         switch( $type )

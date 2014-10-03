@@ -9,3 +9,4 @@ project.properties
 /composer.lock
 !/tests/_output/empty
 /docs/
+/.idea/
