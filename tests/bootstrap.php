@@ -26,15 +26,13 @@
  * PHP version 5.3
  * 
  * @category  PHP
- * @package   RawPHP/RawDateTime
+ * @package   RawPHP/RawDateTime/Tests
  * @author    Tom Kaczohca <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
 
-defined( 'DS' ) || define( 'DS', DIRECTORY_SEPARATOR );
-
-require_once dirname( dirname( __FILE__ ) ) . DS . 'vendor' . DS . 'autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 echo PHP_EOL . PHP_EOL . '************* BOOTSTRAP ********************' . PHP_EOL . PHP_EOL;

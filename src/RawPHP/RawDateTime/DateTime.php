@@ -27,7 +27,7 @@
  * 
  * @category  PHP
  * @package   RawPHP/RawDateTime
- * @author    Tom Kaczohca <tom@rawphp.org>
+ * @author    Tom Kaczocha <tom@rawphp.org>
  * @copyright 2014 Tom Kaczocha
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
@@ -35,7 +35,9 @@
 
 namespace RawPHP\RawDateTime;
 
-use RawPHP\RawDateTime\IDateTime;
+use DateTime as BaseDateTime;
+use DateTimeZone;
+use RawPHP\RawDateTime\Contract\IDateTime;
 
 /**
  * This class extends DateTime and provides useful utility methods.
@@ -47,20 +49,20 @@ use RawPHP\RawDateTime\IDateTime;
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
-class DateTime extends \DateTime implements IDateTime
+class DateTime extends BaseDateTime implements IDateTime
 {
     /**
      * Converts the current date time object to UTC time.
      * 
-     * @param \DateTime $date the date time object to convert
+     * @param BaseDateTime $date the date time object to convert
      * 
-     * @return \DateTime the UTC date time object
+     * @return BaseDateTime the UTC date time object
      */
-    public static function getUtcDateTime( \DateTime $date )
+    public static function getUtcDateTime( BaseDateTime $date )
     {
-        $newDate = new \DateTime( );
+        $newDate = new BaseDateTime( );
         $newDate->setTimestamp( $date->getTimestamp() );
-        $newDate->setTimezone( new \DateTimeZone( 'UTC' ) );
+        $newDate->setTimezone( new DateTimeZone( 'UTC' ) );
         
         return $newDate;
     }
@@ -68,23 +70,23 @@ class DateTime extends \DateTime implements IDateTime
     /**
      * Converts the UTC date time object to user time.
      * 
-     * @param \DateTime $date     the date time to convert
+     * @param BaseDateTime $date     the date time to convert
      * @param string    $timezone the time zone
      * 
-     * @return \DateTime the user timezone date time object
+     * @return BaseDateTime the user timezone date time object
      */
-    public static function getUserDateTime( \DateTime $date, $timezone = '' )
+    public static function getUserDateTime( BaseDateTime $date, $timezone = '' )
     {
-        $newDate = new \DateTime( );
+        $newDate = new BaseDateTime( );
         $newDate->setTimestamp( $date->getTimestamp() );
         
         if ( is_string( $timezone ) && !empty( $timezone ) )
         {
-            $timezone = new \DateTimeZone( $timezone );
+            $timezone = new DateTimeZone( $timezone );
         }
         if ( empty( $timezone ) )
         {
-            $timezone = new \DateTimeZone( ini_get( 'date.timezone' ) );
+            $timezone = new DateTimeZone( ini_get( 'date.timezone' ) );
         }
         
         $newDate->setTimezone( $timezone );
@@ -95,15 +97,15 @@ class DateTime extends \DateTime implements IDateTime
     /**
      * Returns the span between the two dates.
      * 
-     * @param \DateTime $date1    first date
-     * @param \DateTime $date2    second date
+     * @param BaseDateTime $date1    first date
+     * @param BaseDateTime $date2    second date
      * @param string    $type     the scale of span output 
      *                            [ years, months, days, hours, minutes, seconds ]
      * @param bool      $absolute should the output be forced to be positive
      * 
      * @return mixed the span between the dates or FALSE on error
      */
-    public static function getSpan( \DateTime $date1, \DateTime $date2, 
+    public static function getSpan( BaseDateTime $date1, BaseDateTime $date2,
         $type = self::SPAN_HOURS, $absolute = TRUE
     )
     {
@@ -181,7 +183,7 @@ class DateTime extends \DateTime implements IDateTime
     const SPAN_MINUTES  = 'minutes';
     const SPAN_SECONDS  = 'seconds';
     
-    public static $timezones = array(
+    public static $timezones = [
         'Kwajalein' => '(GMT-12:00) International Date Line West',
         'Pacific/Midway' => '(GMT-11:00) Midway Island',
         'Pacific/Samoa' => '(GMT-11:00) Samoa',
@@ -308,5 +310,5 @@ class DateTime extends \DateTime implements IDateTime
         'Asia/Kamchatka' => '(GMT+12:00) Kamchatka',
         'Pacific/Auckland' => '(GMT+12:00) Auckland',
         'Pacific/Tongatapu' => '(GMT+13:00) Nukualofa'
-    );
+    ];
 }

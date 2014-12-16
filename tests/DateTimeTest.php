@@ -33,8 +33,10 @@
  * @link      http://rawphp.org/
  */
 
-namespace RawPHP\RawDateTime;
+namespace RawPHP\RawDateTime\Tests;
 
+use DateTimeZone;
+use PHPUnit_Framework_TestCase;
 use RawPHP\RawDateTime\DateTime;
 
 /**
@@ -47,7 +49,7 @@ use RawPHP\RawDateTime\DateTime;
  * @license   http://rawphp.org/license.txt MIT
  * @link      http://rawphp.org/
  */
-class DateTimeTest extends \PHPUnit_Framework_TestCase
+class DateTimeTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test converting a date time object to UTC timezone.
@@ -56,7 +58,7 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     {
         $date     = new DateTime( );
         $expected = new DateTime( );
-        $expected->setTimezone( new \DateTimeZone( 'UTC' ) );
+        $expected->setTimezone( new DateTimeZone( 'UTC' ) );
         
         $utc = DateTime::getUtcDateTime( $date );
         
@@ -69,7 +71,7 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
     public function testGetUserDateTime( )
     {
         $date = new DateTime( );
-        $date->setTimezone( new \DateTimeZone( 'UTC' ) );
+        $date->setTimezone( new DateTimeZone( 'UTC' ) );
         $expected = new DateTime( );
         
         $this->assertEquals( $expected->getTimestamp( ), $date->getTimestamp( ) );
@@ -101,39 +103,39 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
      */
     public function spanProvider( )
     {
-        return array(
+        return [
             // years
-            array( '+ 10 years', 10, DateTime::SPAN_YEARS ),    // 0
-            array( '- 10 years', -10, DateTime::SPAN_YEARS ),   // 1
+            [ '+ 10 years', 10, DateTime::SPAN_YEARS ],    // 0
+            [ '- 10 years', -10, DateTime::SPAN_YEARS ],   // 1
             
             // months
-            array( '+ 2 months', 2, DateTime::SPAN_MONTHS ),    // 2
-            array( '+ 10 months', 10, DateTime::SPAN_MONTHS ),  // 3
-            array( '- 12 months', -12, DateTime::SPAN_MONTHS ), // 4
+            [ '+ 2 months', 2, DateTime::SPAN_MONTHS ],    // 2
+            [ '+ 10 months', 10, DateTime::SPAN_MONTHS ],  // 3
+            [ '- 12 months', -12, DateTime::SPAN_MONTHS ], // 4
             
             // weeks
-            array( '+ 10 weeks', 10, DateTime::SPAN_WEEKS ),    // 5
-            array( '- 10 weeks', -10, DateTime::SPAN_WEEKS ),   // 6
+            [ '+ 10 weeks', 10, DateTime::SPAN_WEEKS ],    // 5
+            [ '- 10 weeks', -10, DateTime::SPAN_WEEKS ],   // 6
             
             // days
-            array( '+ 2 days', 2, DateTime::SPAN_DAYS ),        // 7
-            array( '+ 10 days', 10, DateTime::SPAN_DAYS ),      // 8
-            array( '- 12 days', -12, DateTime::SPAN_DAYS ),     // 9
+            [ '+ 2 days', 2, DateTime::SPAN_DAYS ],        // 7
+            [ '+ 10 days', 10, DateTime::SPAN_DAYS ],      // 8
+            [ '- 12 days', -12, DateTime::SPAN_DAYS ],     // 9
             
             // hours
-            array( '+ 2 hours', 2, DateTime::SPAN_HOURS ),      // 10
-            array( '+ 10 hours', 10, DateTime::SPAN_HOURS ),    // 11
-            array( '- 12 hours', -12, DateTime::SPAN_HOURS ),   // 12
+            [ '+ 2 hours', 2, DateTime::SPAN_HOURS ],      // 10
+            [ '+ 10 hours', 10, DateTime::SPAN_HOURS ],    // 11
+            [ '- 12 hours', -12, DateTime::SPAN_HOURS ],   // 12
             
             // minutes
-            array( '+ 2 minutes', 2, DateTime::SPAN_MINUTES ),      // 13
-            array( '+ 122 minutes', 122, DateTime::SPAN_MINUTES ),  // 14
-            array( '- 122 minutes', -122, DateTime::SPAN_MINUTES ), // 15
+            [ '+ 2 minutes', 2, DateTime::SPAN_MINUTES ],      // 13
+            [ '+ 122 minutes', 122, DateTime::SPAN_MINUTES ],  // 14
+            [ '- 122 minutes', -122, DateTime::SPAN_MINUTES ], // 15
             
             // seconds
-            array( '+ 2 seconds', 2, DateTime::SPAN_SECONDS ),      // 16
-            array( '+ 10 seconds', 10, DateTime::SPAN_SECONDS ),    // 17
-            array( '- 12 seconds', -12, DateTime::SPAN_SECONDS ),   // 18
-        );
+            [ '+ 2 seconds', 2, DateTime::SPAN_SECONDS ],      // 16
+            [ '+ 10 seconds', 10, DateTime::SPAN_SECONDS ],    // 17
+            [ '- 12 seconds', -12, DateTime::SPAN_SECONDS ],   // 18
+        ];
     }
 }
